@@ -1,8 +1,10 @@
 package in.ishansa.gquiz;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
+import android.net.Uri;
+import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,9 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class QuizActivity extends Activity implements View.OnClickListener {
+public class QuizActivity extends FragmentActivity implements View.OnClickListener {
 
-    private Button mTrueButton;
+    /*private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
     private TextView mQuestionTextView;
@@ -46,19 +48,24 @@ public class QuizActivity extends Activity implements View.OnClickListener {
 
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
 
-    }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
+        if(savedInstanceState == null){
+           getSupportFragmentManager().beginTransaction().
+                    replace(R.id.your_placeholder, new geoFragment()).commit();
+        }
 
-        mTrueButton = (Button)findViewById(R.id.true_button);
+
+       /* mTrueButton = (Button)findViewById(R.id.true_button);
         mTrueButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -88,33 +95,10 @@ public class QuizActivity extends Activity implements View.OnClickListener {
             }
         });
 
-        updateQuestion();
+        updateQuestion();*/
 
 
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_quiz, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @Override
     public void onClick(View v) {
 /*        switch (v.getId()) {
