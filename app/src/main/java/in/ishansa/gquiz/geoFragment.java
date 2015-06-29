@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -12,21 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link geoFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link geoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class geoFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
+    // Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+    // Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -72,7 +66,7 @@ public class geoFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment geoFragment.
      */
-    // TODO: Rename and change types and number of parameters
+    // Rename and change types and number of parameters
     public static geoFragment newInstance(String param1, String param2) {
         geoFragment fragment = new geoFragment();
         Bundle args = new Bundle();
@@ -93,6 +87,8 @@ public class geoFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        //setHasOptionsMenu(true);
     }
 
     @Override
@@ -135,4 +131,13 @@ public class geoFragment extends Fragment {
 
         return view;
     }
+
+/*    @Override
+    public void onCreateOptionMenu(
+            Menu menu, MenuInflater inflater){
+        inflater.inflate(R.menu.main_menu, menu);
+    }*/
+
+
+
 }
